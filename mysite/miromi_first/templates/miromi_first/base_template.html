@@ -1,0 +1,38 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'miromi_first/main.css' %}"
+    />
+
+    <meta charset="UTF-8" />
+    <title>Title</title>
+  </head>
+  <body>
+    <div class="topnav">
+      <div class="topnav-right">
+        <a href="#about">Login</a>
+      </div>
+    </div>
+    <img
+      src="{% static 'miromi_first/images/miromi_logo.png' %}"
+      alt="Miromi"
+      class="hello-world"
+      height="200"
+      width="200"
+      float="right"
+    />
+
+    {% block content %} {% endblock %}
+  </body>
+</html>

@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register!</title>
+  </head>
+  <style>
+    body {
+      background-image: url("{% static 'users/images/miromi_background_pic.jpg' %}");
+      background-size: cover;
+    }
+
+    .content-section {
+      position: absolute;
+    }
+
+    form {
+      position: relative;
+      left: 375px;
+      bottom: 0px;
+      background-color: rgb(255, 255, 255, 0.6);
+    }
+
+    .image-edit {
+      position: relative;
+      left: 570px;
+      bottom: 0px;
+    }
+
+    .text-muted {
+      position: relative;
+      bottom: -10px;
+      left: 375px;
+      background-color: rgb(255, 255, 255, 0.6);
+      padding: 5px;
+      border: silver;
+    }
+
+    button {
+      position: relative;
+      left: 290px;
+    }
+  </style>
+  <body>
+    {% if messages %} {% for message in messages %} {{ message }} {% endfor %}
+    {% endif %}
+    <div class="content-section">
+      <div class="image-edit">
+        <img
+          src="{% static 'users/images/miromi_logo.png'%}"
+          alt="Miromi"
+          height="250"
+          width="300"
+        />
+      </div>
+
+      <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          <legend class="border-bottom mb-4">Sign Up Now!</legend>
+          {{ form.as_p }}
+          <label for="user-type"> What are you?</label>
+          <select id="user-type" name="user-type">
+            <option value="Influencer">Influencer</option>
+            <option value="Beauty Enthusiast">Beauty Enthusiast</option>
+          </select>
+        </fieldset>
+        <div class="form-group">
+          <button class="btn btn-outline-info" type="submit">Sign Up!</button>
+        </div>
+      </form>
+      <div class="border-top pt-3">
+        <small class="text-muted">
+          Already have an account? <a class="ml-2" href="#"> Sign In </a>
+        </small>
+      </div>
+    </div>
+  </body>
+</html>
